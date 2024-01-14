@@ -6,9 +6,7 @@ Edulist is an educational checklist for students that are studying development. 
 
 ## Interface
 
-![Alt text](/public/edulist2-screenshot.png?raw=true "Optional Title")
-
-You can find the latest build on: [https://www.edulist.be](https://www.edulist.be).
+![Alt text](/public/edulist-evr.png?raw=true "Screenshot")
 
 ## Installation
 
