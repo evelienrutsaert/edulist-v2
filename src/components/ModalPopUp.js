@@ -16,9 +16,10 @@ export default function ModalPopUp({ title, content, slide }) {
 				show={openModal === "default"}
 				onClose={() => setOpenModel(undefined)}
 				className="min-h-screen"
+				size="5xl"
 			>
 				<Modal.Header>{title}</Modal.Header>
-				<Modal.Body className="min-h-[50vh]">
+				<Modal.Body className="min-h-[80vh] ">
 					{content && content}
 					{slide && (
 						<iframe
@@ -30,7 +31,7 @@ export default function ModalPopUp({ title, content, slide }) {
 							scrolling="no"
 							frameBorder="0"
 							allowFullScreen
-							className="min-h-[50vh]"
+							className="min-h-[80vh]"
 						/>
 					)}
 				</Modal.Body>

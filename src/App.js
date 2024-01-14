@@ -5,7 +5,6 @@ import {
 	createBrowserRouter,
 	createRoutesFromElements,
 } from "react-router-dom";
-import { useEffect, useState } from "react";
 import Root from "./layout/Root";
 import { ThemeArea } from "./context/ThemeContext";
 import Courses from "./pages/Courses";

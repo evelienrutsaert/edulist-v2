@@ -11,7 +11,7 @@ export default function CourseItem({ course }) {
 			<img
 				className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-40 md:rounded-none md:rounded-l-lg"
 				src={course.image ? course.image : defaultImage}
-				alt="Course Image"
+				alt="Course default"
 			/>
 			<div className="flex flex-col justify-between p-4 leading-normal">
 				<h2 className="mb-2 text-xl lg:text-lg font-bold tracking-tight text-gray-900 dark:text-white">

@@ -5,7 +5,6 @@ import Loader from "../components/Loader";
 
 import CourseItem from "../components/courses/CourseItem";
 import Search from "../components/Search";
-import ModalPopUp from "../components/ModalPopUp";
 
 export default function Courses() {
 	const { loading, error, data } = useQuery(COURSES);

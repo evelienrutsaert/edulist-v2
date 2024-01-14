@@ -1,6 +1,5 @@
 import React from "react";
 import ThemeSwitcher from "../components/ThemeSwitcher";
-import Search from "../components/Search";
 
 export default function NavBar() {
 	return (

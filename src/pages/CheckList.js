@@ -8,7 +8,7 @@ import BackButton from "../components/BackButton";
 import Kuddos from "../components/Kuddos";
 
 export default function CheckList() {
-	const { courseSlug, checklistSlug } = useParams();
+	const { checklistSlug } = useParams();
 	const { loading, error, data } = useQuery(CHECKLIST, {
 		variables: { checklistSlug },
 	});
@@ -20,7 +20,7 @@ export default function CheckList() {
 				setTimeForKuddos(false);
 			}, 5000);
 		}, 5000);
-	}, []);
+	}, [timeForKuddos]);
 
 	if (loading) return <Loader />;
 	if (error || !data) return null;

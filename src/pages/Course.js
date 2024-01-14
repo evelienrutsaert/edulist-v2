@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import React, { useEffect } from "react";
+import React, { Fragment } from "react";
 import { useParams } from "react-router-dom";
 import Loader from "../components/Loader";
 import { COURSE } from "../graphql/queries";
@@ -12,11 +12,11 @@ export default function Course() {
 		variables: { courseSlug },
 	});
 
-	let coursSections;
-	useEffect(() => {
-		coursSections = data?.course.courseSections;
-		// console.log(coursSections);
-	}, [data]);
+	// useEffect(() => {
+	// 	let coursSections;
+	// 	coursSections = data?.course.courseSections;
+	// 	// console.log(coursSections);
+	// }, [data]);
 	if (loading) return <Loader />;
 	if (error || !data) return null;
 	// if (data) console.log(data);
@@ -32,9 +32,9 @@ export default function Course() {
 						</p>
 					</caption>
 					{data &&
-						data.course.courseSections.map((section) => {
+						data.course.courseSections.map((section, i) => {
 							return (
-								<>
+								<Fragment key={`section-${i}`}>
 									<thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
 										<tr>
 											<th scope="col" className="px-6 py-3">
@@ -49,9 +49,10 @@ export default function Course() {
 									<tbody>
 										{data &&
 											data.course.courseSections[0].checklists.map(
-												(courseCheckList) => {
+												(courseCheckList, num) => {
 													return (
 														<CourseSectionRow
+															key={`section-${i}-row-${num}`}
 															courseCheckList={courseCheckList}
 														/>
 													);
@@ -59,7 +60,7 @@ export default function Course() {
 												}
 											)}
 									</tbody>
-								</>
+								</Fragment>
 							);
 						})}
 				</table>

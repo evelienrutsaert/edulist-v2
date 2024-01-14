@@ -10,6 +10,10 @@ export default function Slide({ slideId }) {
 	// if (data) console.log(data);
 
 	return (
-		<>{data && <ModalPopUp title={data.slide.title} slide={data.slide} />}</>
+		<>
+			{loading && <p>Loading data ....</p>}
+			{error && <p>Error loading data ....</p>}
+			{data && <ModalPopUp title={data.slide.title} slide={data.slide} />}
+		</>
 	);
 }
