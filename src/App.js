@@ -10,7 +10,7 @@ import { ThemeArea } from "./context/ThemeContext";
 import Courses from "./pages/Courses";
 import Course from "./pages/Course";
 import ErrorPage from "./pages/ErrorPage";
-import CheckList from "./pages/CheckList";
+import LearningPath from "./pages/LearningPath";
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -24,8 +24,8 @@ const router = createBrowserRouter(
 					errorElement={<ErrorPage />}
 				/>
 				<Route
-					path=":courseSlug/:checklistSlug"
-					element={<CheckList />}
+					path=":courseSlug/:learningPathSlug"
+					element={<LearningPath />}
 					errorElement={<ErrorPage />}
 				/>
 			</Route>

@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 import { useParams } from "react-router-dom";
 import Loader from "../components/Loader";
 import { COURSE } from "../graphql/queries";
-import CourseSectionRow from "../components/courses/CourseSectionRow";
+import LearningPathRow from "../components/learningpath/LearningPathRow";
 import BackButton from "../components/BackButton";
 
 export default function Course() {
@@ -49,11 +49,11 @@ export default function Course() {
 									<tbody>
 										{data &&
 											data.course.courseSections[0].checklists.map(
-												(courseCheckList, num) => {
+												(courseLearningPath, num) => {
 													return (
-														<CourseSectionRow
+														<LearningPathRow
 															key={`section-${i}-row-${num}`}
-															courseCheckList={courseCheckList}
+															courseLearningPath={courseLearningPath}
 														/>
 													);
 													// console.log(courseCheckList);
