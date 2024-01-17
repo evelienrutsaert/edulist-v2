@@ -7,6 +7,7 @@ import LearningPathItemRow from "../components/learningpath/LearningPathSectionR
 import BackButton from "../components/BackButton";
 import Kuddos from "../components/Kuddos";
 import LearningPathSection from "../components/learningpath/LearningPathSection";
+import Sidebar from "../components/Sidebar";
 
 export default function LearningPath() {
 	const { learningPathSlug } = useParams();
@@ -29,7 +30,9 @@ export default function LearningPath() {
 
 	return (
 		<div>
+			<Sidebar />
 			{timeForKuddos && <Kuddos />}
+
 			{data?.checklist.checklistSections.map((learningPathSection, i) => {
 				return (
 					<LearningPathSection

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 export default function ModalPopUp({
 	title,
 	content,
-	slide,
+	src,
 	openModal,
 	setOpenModal,
 }) {
@@ -26,13 +26,13 @@ export default function ModalPopUp({
 				<Modal.Header>{title}</Modal.Header>
 				<Modal.Body className="min-h-[80vh] ">
 					{content && content}
-					{slide && (
+					{src && (
 						<iframe
 							// ref={iFrameRef}
 							width="100%"
 							// height="95%"
-							title={slide.title}
-							src={`${slide.slideUrl}#/${slide.slideX}/${slide.slideY}`}
+							title={title}
+							src={src}
 							scrolling="no"
 							frameBorder="0"
 							allowFullScreen
