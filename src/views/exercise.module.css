@@ -1,0 +1,75 @@
+.md pre {
+	border-radius: 5px;
+}
+
+.md p {
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+.md h1 {
+	margin-top: 2em;
+	margin-bottom: 1em;
+	font-weight: bold;
+	font-size: 2.5rem;
+	line-height: 2;
+	border-bottom: 3px solid var(--text-color);
+}
+.md h2 {
+	font-weight: bold;
+	border-bottom: 1px solid var(--text-color);
+	padding-bottom: 1rem;
+	margin-bottom: 1rem;
+	margin-top: 2rem;
+}
+.md code {
+	background-color: var(--lightGrey);
+	border-radius: 3px;
+	padding: 0.25rem 0.5rem;
+	margin-bottom: 20px;
+}
+.md li::before {
+	width: 20px;
+}
+.md li {
+	list-style: decimal;
+	margin-bottom: 1rem;
+}
+.md li p {
+	margin: 0;
+}
+.md li p::marker {
+	color: var(--exercise-numbering-color);
+	margin-right: 20px;
+}
+.md table {
+	width: 100%;
+	background-color: var(--white);
+	border-collapse: collapse;
+	border-width: 2px;
+	border-color: var(--purple);
+	border-style: solid;
+	color: var(--black);
+}
+.md table th,
+.md table td {
+	border-width: 2px;
+	border-color: var(--purple);
+	border-style: solid;
+	padding: 3px;
+}
+.md table thead {
+	color: var(--white);
+	background-color: var(--purple);
+}
+.mdBlockQuote {
+	padding: 20px;
+	background-color: var(--lightGrey);
+	margin: 40px 0px;
+	box-shadow: var(--level-2);
+}
+.md ol {
+	padding-left: 2em;
+}
+.md ul {
+	padding-left: 2em;
+}

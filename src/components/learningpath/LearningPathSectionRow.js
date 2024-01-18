@@ -4,6 +4,7 @@ import Slide from "../../views/Slide";
 import Asset from "../../views/Asset";
 import LinkType from "../../views/LinkType";
 import MdDoc from "../../views/MdDoc";
+import Excercise from "../../views/Exercise";
 
 export default function LearningPathSectionRow({ learningPathItem }) {
 	const [itemType, setItemType] = useState({
@@ -72,14 +73,14 @@ export default function LearningPathSectionRow({ learningPathItem }) {
 									setOpenModal={setOpenModal}
 								/>
 							);
-						// case "excercise":
-						// 	return (
-						// 		<MdDoc
-						// 			mdDocId={learningPathItem.mdDoc.id}
-						// 			openModal={openModal}
-						// 			setOpenModal={setOpenModal}
-						// 		/>
-						// 	);
+						case "excercise":
+							return (
+								<Excercise
+									exerciseId={learningPathItem.exercise.id}
+									openModal={openModal}
+									setOpenModal={setOpenModal}
+								/>
+							);
 						default:
 							return null;
 					}

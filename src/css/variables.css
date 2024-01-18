@@ -1,0 +1,27 @@
+:root {
+	/* Colors */
+
+	--black: #141414;
+	--white: #ffffff;
+	--purple: #7e57c5;
+	--lightGrey: rgba(247, 247, 247, 1);
+	--lightGreyTransparant: rgba(0, 0, 0, 0.03);
+	--lightPurple: rgba(126, 87, 197, 0.05);
+	--teamsPurple: #464eb8;
+	--red: #ff0000;
+
+	/* Color Intentions */
+	--background-color: var(--white);
+	--background-color-section-even: var(--lightGrey);
+	--text-color: var(--black);
+	--exercise-numbering-color: var(--purple);
+
+	/* Elevation */
+	--level-1: 0 1px 3px 0 rgba(0, 24, 88, 0.1), 0 1px 2px 0 rgba(0, 24, 88, 0.06);
+	--level-2: 0 4px 6px -1px rgba(0, 24, 88, 0.1),
+		0 2px 4px -1px rgba(0, 24, 88, 0.06);
+	--level-3: 0 10px 15px -3px rgba(0, 24, 88, 0.1),
+		0 4px 6px -2px rgba(0, 24, 88, 0.05);
+	--level-4: 0 20px 25px -5px rgba(0, 24, 88, 0.1),
+		0 10px 10px -5px rgba(0, 24, 88, 0.04);
+}
