@@ -6,7 +6,7 @@ export default function LinkType({ path, title, openModal, setOpenModal }) {
 		<>
 			{path && (
 				<Link to={path} target="_blank">
-					{title}
+					Go to link
 				</Link>
 			)}
 		</>
