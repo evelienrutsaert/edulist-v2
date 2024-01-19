@@ -5,6 +5,7 @@ import Asset from "../../views/Asset";
 import LinkType from "../../views/LinkType";
 import MdDoc from "../../views/MdDoc";
 import Excercise from "../../views/Exercise";
+import YouTube from "../../views/YouTube";
 
 export default function LearningPathSectionRow({ learningPathItem }) {
 	const [itemType, setItemType] = useState({
@@ -12,10 +13,28 @@ export default function LearningPathSectionRow({ learningPathItem }) {
 		title: "no title",
 		colorClass: "black-500",
 	});
+	const [itemTitle, setItemTitle] = useState("");
 	const [openModal, setOpenModal] = useState("");
+	const YOUTUBE_API = process.env.REACT_APP_YOUTUBE_KEY;
 
 	// console.log(allItemTypes);
 	useEffect(() => {
+		if (learningPathItem.type === "youtube") {
+			fetch(
+				"https://www.googleapis.com/youtube/v3/videos?part=snippet&id=" +
+					learningPathItem.youTube.videoId +
+					"&key=" +
+					YOUTUBE_API
+			)
+				.then((data) => {
+					return data.json();
+				})
+				.then((data) => {
+					console.log(data);
+					setItemTitle(data.items[0].snippet.title);
+				});
+		}
+
 		const filteredType = allItemTypes.filter((type) => {
 			return type.slug === learningPathItem.type;
 		});
@@ -26,7 +45,7 @@ export default function LearningPathSectionRow({ learningPathItem }) {
 	return (
 		<tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
 			<td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-				{learningPathItem.description}
+				{itemTitle ? itemTitle : learningPathItem.description}
 				<button
 					onClick={itemType.modal ? () => setOpenModal("default") : undefined}
 					className={`ml-8 py-1 px-2 rounded-full text-xs cursor-auto ${
@@ -79,6 +98,16 @@ export default function LearningPathSectionRow({ learningPathItem }) {
 									exerciseId={learningPathItem.exercise.id}
 									openModal={openModal}
 									setOpenModal={setOpenModal}
+								/>
+							);
+						case "youTube":
+							return (
+								<YouTube
+									youtubeId={learningPathItem.youTube.id}
+									videoId={learningPathItem.youTube.videoId}
+									openModal={openModal}
+									setOpenModal={setOpenModal}
+									youTubeTitle={itemTitle}
 								/>
 							);
 						default:

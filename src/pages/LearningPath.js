@@ -26,7 +26,6 @@ export default function LearningPath() {
 
 	if (loading) return <Loader />;
 	if (error || !data) return null;
-	// if (data) console.log(data);
 
 	return (
 		<div>

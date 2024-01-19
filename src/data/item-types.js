@@ -10,6 +10,7 @@ export const allItemTypes = [
 		slug: "youtube",
 		title: "Youtube",
 		bgColor: "bg-red-500",
+		type: "youTube",
 		modal: false,
 	},
 	{

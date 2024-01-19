@@ -36,7 +36,7 @@ export default function ModalPopUp({
 							scrolling="no"
 							frameBorder="0"
 							allowFullScreen
-							className="min-h-[80vh]"
+							className="min-h-[70vh] min-w-[100%]"
 						/>
 					)}
 				</Modal.Body>
