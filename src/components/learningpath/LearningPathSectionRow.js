@@ -30,7 +30,6 @@ export default function LearningPathSectionRow({ learningPathItem }) {
 					return data.json();
 				})
 				.then((data) => {
-					console.log(data);
 					setItemTitle(data.items[0].snippet.title);
 				});
 		}
