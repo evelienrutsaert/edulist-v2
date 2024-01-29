@@ -32,7 +32,6 @@ export default function LearningPath() {
 	}, [timeForKuddos]);
 
 	const [checkList, setChecklist] = useState([]);
-
 	const { fetchYoutubeTitle } = useYouTube();
 	useEffect(() => {
 		const setAllItems = () => {
@@ -61,14 +60,12 @@ export default function LearningPath() {
 								const youtubeTitle = await fetchYoutubeTitle(
 									item.youTube.videoId
 								);
-
 								currentItem = {
 									type: "youTube",
 									id: item.youTube.id,
 									viewType: "modal",
 									title: youtubeTitle,
 									bgColor: "bg-red-500",
-									component: <YouTube />,
 									inputProps: {
 										youtubeId: item.youTube.id,
 										videoId: item.youTube.videoId,
@@ -77,9 +74,9 @@ export default function LearningPath() {
 									component: YouTube,
 								};
 								break;
-							case "excercise":
+							case "exercise":
 								currentItem = {
-									type: "excercise",
+									type: "exercise",
 									id: item.exercise.id,
 									viewType: "sidebar",
 									title: item.description,
@@ -91,9 +88,10 @@ export default function LearningPath() {
 								};
 								break;
 							case "github":
+								console.log(item);
 								currentItem = {
 									type: "github",
-									id: item.github.id,
+									id: item.id,
 									viewType: "link",
 									title: item.description,
 									bgColor: "bg-[#f8ae51]",
@@ -157,7 +155,7 @@ export default function LearningPath() {
 
 	if (loading) return <Loader />;
 	if (error || !data) return null;
-
+	if (data) console.log(data);
 	return (
 		<div>
 			<Sidebar />
