@@ -58,7 +58,7 @@ export default function LearningPath() {
 										setOpenModal: setOpenModal,
 										id: item.slide.id,
 									},
-									component: <Slide />,
+									component: Slide,
 								};
 								break;
 							case "youtube":
@@ -75,6 +75,8 @@ export default function LearningPath() {
 									path: "",
 									videoId: item.youTube.videoId,
 									component: <YouTube />,
+									inputProps: {},
+									component: YouTube,
 								};
 								break;
 							case "excercise":
@@ -99,7 +101,7 @@ export default function LearningPath() {
 									inputProps: {
 										path: item.url,
 									},
-									component: <LinkType />,
+									component: LinkType,
 								};
 								break;
 							case "link":
@@ -113,7 +115,7 @@ export default function LearningPath() {
 									inputProps: {
 										path: item.url,
 									},
-									component: <LinkType />,
+									component: LinkType,
 								};
 								break;
 							case "mddoc":
