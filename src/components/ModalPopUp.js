@@ -1,5 +1,5 @@
 import { Modal } from "flowbite-react";
-import React from "react";
+import React, { useState } from "react";
 
 export default function ModalPopUp({
 	title,

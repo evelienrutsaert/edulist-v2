@@ -6,9 +6,9 @@ import ModalPopUp from "../components/ModalPopUp";
 export default function YouTube({
 	youtubeId,
 	videoId,
-	youTubeTitle,
 	openModal,
 	setOpenModal,
+	youTubeTitle,
 }) {
 	const { loading, error, data } = useQuery(YOUTUBE, {
 		variables: { id: youtubeId },
