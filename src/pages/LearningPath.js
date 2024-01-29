@@ -32,7 +32,6 @@ export default function LearningPath() {
 		// }, 5000);
 	}, [timeForKuddos]);
 
-	const [openModal, setOpenModal] = useState("");
 	const [checkList, setChecklist] = useState([]);
 
 	const { fetchYoutubeTitle } = useYouTube();
@@ -53,9 +52,8 @@ export default function LearningPath() {
 									title: item.description,
 									path: "",
 									videoId: "",
+									bgColor: "bg-blue-500",
 									inputProps: {
-										openModal: openModal,
-										setOpenModal: setOpenModal,
 										id: item.slide.id,
 									},
 									component: Slide,
@@ -72,6 +70,7 @@ export default function LearningPath() {
 									id: item.youTube.id,
 									viewType: "modal",
 									title: youtubeTitle,
+									bgColor: "bg-red-500",
 									path: "",
 									videoId: item.youTube.videoId,
 									component: <YouTube />,
@@ -85,6 +84,7 @@ export default function LearningPath() {
 									id: item.exercise.id,
 									viewType: "sidebar",
 									title: item.description,
+									bgColor: "bg-cyan-500",
 									path: "",
 									videoId: "",
 									component: <Excercise id={item.exercise.id} />,
@@ -96,6 +96,7 @@ export default function LearningPath() {
 									id: item.github.id,
 									viewType: "link",
 									title: item.description,
+									bgColor: "bg-[#f8ae51]",
 									path: item.url,
 									videoId: "",
 									inputProps: {
@@ -110,6 +111,7 @@ export default function LearningPath() {
 									id: "",
 									viewType: "link",
 									title: item.description,
+									bgColor: "bg-indigo-500",
 									path: item.url,
 									videoId: "",
 									inputProps: {
@@ -124,6 +126,7 @@ export default function LearningPath() {
 									id: item.mdDoc.id,
 									viewType: "sidebar",
 									title: item.description,
+									bgColor: "bg-pink-500",
 									path: "",
 									videoId: "",
 									component: <MdDoc id={item.mdDoc.id} />,
@@ -135,6 +138,7 @@ export default function LearningPath() {
 									id: item.asset.id,
 									viewType: "modal",
 									title: item.description,
+									bgColor: "bg-rose-300",
 									path: "",
 									videoId: "",
 									component: <Asset id={item.asset.id} />,
