@@ -34,6 +34,7 @@ export default function LearningPath() {
 	const [checkList, setChecklist] = useState([]);
 	const { fetchYoutubeTitle } = useYouTube();
 	useEffect(() => {
+		setChecklist([]);
 		const setAllItems = () => {
 			data?.checklist.checklistSections.map(async (secion) => {
 				let allItems = [];

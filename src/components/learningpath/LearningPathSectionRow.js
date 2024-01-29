@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 export default function LearningPathSectionRow({ learningPathItem }) {
-	// console.log(learningPathItem);
 	const { component: Component } = learningPathItem;
 	const [openModal, setOpenModal] = useState("");
 	return (
