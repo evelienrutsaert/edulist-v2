@@ -86,7 +86,10 @@ export default function LearningPath() {
 									bgColor: "bg-cyan-500",
 									path: "",
 									videoId: "",
-									component: <Excercise id={item.exercise.id} />,
+									inputProps: {
+										id: item.exercise.id,
+									},
+									component: Excercise,
 								};
 								break;
 							case "github":
@@ -128,7 +131,10 @@ export default function LearningPath() {
 									bgColor: "bg-pink-500",
 									path: "",
 									videoId: "",
-									component: <MdDoc id={item.mdDoc.id} />,
+									inputProps: {
+										id: item.mdDoc.id,
+									},
+									component: MdDoc,
 								};
 								break;
 							case "asset":
@@ -140,7 +146,10 @@ export default function LearningPath() {
 									bgColor: "bg-rose-300",
 									path: "",
 									videoId: "",
-									component: <Asset id={item.asset.id} />,
+									inputProps: {
+										id: item.asset.id,
+									},
+									component: Asset,
 								};
 								break;
 							default:
