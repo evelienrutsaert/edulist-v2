@@ -33,123 +33,124 @@ export default function LearningPath() {
 
 	const [checkList, setChecklist] = useState([]);
 	const { fetchYoutubeTitle } = useYouTube();
-	useEffect(() => {
-		const setAllItems = () => {
-			data?.checklist.checklistSections.map(async (secion) => {
-				let allItems = [];
-				let items = [];
-				await Promise.all(
-					secion.checklistItems.map(async (item, i) => {
-						let currentItem = {};
-						switch (item.type) {
-							case "slides":
-								currentItem = {
-									type: "slide",
+	const setAllItems = async () => {
+		await data?.checklist.checklistSections.map(async (secion) => {
+			let allItems = [];
+			let items = [];
+			await Promise.all(
+				secion.checklistItems.map(async (item, i) => {
+					let currentItem = {};
+					switch (item.type) {
+						case "slides":
+							currentItem = {
+								type: "slide",
+								id: item.slide.id,
+								viewType: "modal",
+								title: item.description,
+								bgColor: "bg-blue-500",
+								inputProps: {
 									id: item.slide.id,
-									viewType: "modal",
-									title: item.description,
-									bgColor: "bg-blue-500",
-									inputProps: {
-										id: item.slide.id,
-									},
-									component: Slide,
-								};
-								break;
-							case "youtube":
-								// Fetch youtube Information based on Youtube Video ID
-								const youtubeTitle = await fetchYoutubeTitle(
-									item.youTube.videoId
-								);
-								currentItem = {
-									type: "youTube",
-									id: item.youTube.id,
-									viewType: "modal",
-									title: youtubeTitle,
-									bgColor: "bg-red-500",
-									inputProps: {
-										youtubeId: item.youTube.id,
-										videoId: item.youTube.videoId,
-										youTubeTitle: youtubeTitle,
-									},
-									component: YouTube,
-								};
-								break;
-							case "exercise":
-								currentItem = {
-									type: "exercise",
+								},
+								component: Slide,
+							};
+							break;
+						case "youtube":
+							// Fetch youtube Information based on Youtube Video ID
+							const youtubeTitle = await fetchYoutubeTitle(
+								item.youTube.videoId
+							);
+							currentItem = {
+								type: "youTube",
+								id: item.youTube.id,
+								viewType: "modal",
+								title: youtubeTitle,
+								bgColor: "bg-red-500",
+								inputProps: {
+									youtubeId: item.youTube.id,
+									videoId: item.youTube.videoId,
+									youTubeTitle: youtubeTitle,
+								},
+								component: YouTube,
+							};
+							break;
+						case "exercise":
+							currentItem = {
+								type: "exercise",
+								id: item.exercise.id,
+								viewType: "sidebar",
+								title: item.description,
+								bgColor: "bg-cyan-500",
+								inputProps: {
 									id: item.exercise.id,
-									viewType: "sidebar",
-									title: item.description,
-									bgColor: "bg-cyan-500",
-									inputProps: {
-										id: item.exercise.id,
-									},
-									component: Excercise,
-								};
-								break;
-							case "github":
-								console.log(item);
-								currentItem = {
-									type: "github",
-									id: item.id,
-									viewType: "link",
-									title: item.description,
-									bgColor: "bg-[#f8ae51]",
-									inputProps: {
-										path: item.url,
-									},
-									component: LinkType,
-								};
-								break;
-							case "link":
-								currentItem = {
-									type: "link",
-									id: "",
-									viewType: "link",
-									title: item.description,
-									bgColor: "bg-indigo-500",
-									inputProps: {
-										path: item.url,
-									},
-									component: LinkType,
-								};
-								break;
-							case "mddoc":
-								currentItem = {
-									type: "mdDoc",
+								},
+								component: Excercise,
+							};
+							break;
+
+						case "github":
+							currentItem = {
+								type: "github",
+								id: item.id,
+								viewType: "link",
+								title: item.description,
+								bgColor: "bg-[#f8ae51]",
+								inputProps: {
+									path: item.url,
+								},
+								component: LinkType,
+							};
+							break;
+						case "link":
+							currentItem = {
+								type: "link",
+								id: "",
+								viewType: "link",
+								title: item.description,
+								bgColor: "bg-indigo-500",
+								inputProps: {
+									path: item.url,
+								},
+								component: LinkType,
+							};
+							break;
+						case "mddoc":
+							currentItem = {
+								type: "mdDoc",
+								id: item.mdDoc.id,
+								viewType: "sidebar",
+								title: item.description,
+								bgColor: "bg-pink-500",
+								inputProps: {
 									id: item.mdDoc.id,
-									viewType: "sidebar",
-									title: item.description,
-									bgColor: "bg-pink-500",
-									inputProps: {
-										id: item.mdDoc.id,
-									},
-									component: MdDoc,
-								};
-								break;
-							case "asset":
-								currentItem = {
-									type: "asset",
+								},
+								component: MdDoc,
+							};
+							break;
+						case "asset":
+						case "pdf":
+							currentItem = {
+								type: "asset",
+								id: item.asset.id,
+								viewType: "modal",
+								title: item.description,
+								bgColor: "bg-rose-300",
+								inputProps: {
 									id: item.asset.id,
-									viewType: "modal",
-									title: item.description,
-									bgColor: "bg-rose-300",
-									inputProps: {
-										id: item.asset.id,
-									},
-									component: Asset,
-								};
-								break;
-							default:
-								break;
-						}
-						items = [...items, { ...currentItem }];
-					})
-				);
-				allItems = { checklists: [...items] };
-				setChecklist((prev) => [...prev, { ...allItems }]);
-			});
-		};
+								},
+								component: Asset,
+							};
+							break;
+						default:
+							break;
+					}
+					items = [...items, { ...currentItem }];
+				})
+			);
+			allItems = { checklists: [...items] };
+			setChecklist((prev) => [...prev, { ...allItems }]);
+		});
+	};
+	useEffect(() => {
 		setAllItems();
 	}, [data]);
 
