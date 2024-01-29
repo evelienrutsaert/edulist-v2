@@ -3,9 +3,9 @@ import ModalPopUp from "../components/ModalPopUp";
 import { useQuery } from "@apollo/client";
 import { GET_ASSET } from "../graphql/queries";
 
-export default function Asset({ assetId, openModal, setOpenModal }) {
+export default function Asset({ id, openModal, setOpenModal }) {
 	const { loading, error, data } = useQuery(GET_ASSET, {
-		variables: { id: assetId },
+		variables: { id: id },
 	});
 	return (
 		<>

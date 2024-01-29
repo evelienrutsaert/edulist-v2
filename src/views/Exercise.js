@@ -4,9 +4,9 @@ import { EXERCISE } from "../graphql/queries";
 import Sidebar from "../components/Sidebar";
 import MarkdownViewer from "../components/MarkdownViewer";
 
-export default function Excercise({ exerciseId, openModal, setOpenModal }) {
+export default function Excercise({ id, openModal, setOpenModal }) {
 	const { loading, error, data } = useQuery(EXERCISE, {
-		variables: { id: exerciseId },
+		variables: { id: id },
 	});
 
 	return (

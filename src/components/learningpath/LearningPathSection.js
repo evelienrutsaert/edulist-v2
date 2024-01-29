@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import LearningPathSectionRow from "./LearningPathSectionRow";
+import { useYouTube } from "../../hooks/useYouTube";
 
 export default function LearningPathSection({ learningPathSection }) {
 	return (
@@ -24,11 +25,11 @@ export default function LearningPathSection({ learningPathSection }) {
 			</thead>
 			<tbody>
 				{learningPathSection &&
-					learningPathSection.checklistItems.map((learningPathItem) => {
+					learningPathSection.checklists.map((learningPathItem, i) => {
 						return (
 							<LearningPathSectionRow
 								learningPathItem={learningPathItem}
-								key={learningPathItem.id}
+								key={`sectionRow-${i}`}
 							/>
 						);
 					})}

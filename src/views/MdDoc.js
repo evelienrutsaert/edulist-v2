@@ -5,9 +5,9 @@ import { MDDOC } from "../graphql/queries";
 import Sidebar from "../components/Sidebar";
 import MarkdownViewer from "../components/MarkdownViewer";
 
-export default function MdDoc({ mdDocId, openModal, setOpenModal }) {
+export default function MdDoc({ id, openModal, setOpenModal }) {
 	const { loading, error, data } = useQuery(MDDOC, {
-		variables: { id: mdDocId },
+		variables: { id: id },
 	});
 	const [mdData, setMdData] = useState("");
 	const [mdMetaData, setMdMetaData] = useState({});

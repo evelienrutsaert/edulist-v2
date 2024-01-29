@@ -8,55 +8,37 @@ import Excercise from "../../views/Exercise";
 import YouTube from "../../views/YouTube";
 
 export default function LearningPathSectionRow({ learningPathItem }) {
-	const [itemType, setItemType] = useState({
-		slug: "default",
-		title: "no title",
-		colorClass: "black-500",
-	});
-	const [itemTitle, setItemTitle] = useState("");
-	const [openModal, setOpenModal] = useState("");
-	const YOUTUBE_API = process.env.REACT_APP_YOUTUBE_KEY;
-
-	// console.log(allItemTypes);
-	useEffect(() => {
-		if (learningPathItem.type === "youtube") {
-			fetch(
-				"https://www.googleapis.com/youtube/v3/videos?part=snippet&id=" +
-					learningPathItem.youTube.videoId +
-					"&key=" +
-					YOUTUBE_API
-			)
-				.then((data) => {
-					return data.json();
-				})
-				.then((data) => {
-					setItemTitle(data.items[0].snippet.title);
-				});
-		}
-
-		const filteredType = allItemTypes.filter((type) => {
-			return type.slug === learningPathItem.type;
-		});
-		// console.log(filteredType);
-		if (filteredType.length !== 0) setItemType(() => filteredType[0]);
-	}, [learningPathItem.type]);
-
+	// console.log(learningPathItem);
+	const { component: Component } = learningPathItem;
+	console.log(Component);
 	return (
 		<tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
 			<td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-				{itemTitle ? itemTitle : learningPathItem.description}
+				{learningPathItem && learningPathItem.title}
 				<button
-					onClick={itemType.modal ? () => setOpenModal("default") : undefined}
-					className={`ml-8 py-1 px-2 rounded-full text-xs cursor-auto ${
-						itemType.bgColor
-					} ${itemType.modal ? "cursor-pointer" : ""}`}
+					// onClick={
+					// 	learningPathItem.viewType === "modal"
+					// 		? () => setOpenModal("default")
+					// 		: undefined
+					// }
+					className={
+						`ml-8 py-1 px-2 rounded-full text-xs cursor-auto `
+						// ${itemType.bgColor} ${itemType.modal ? "cursor-pointer" : ""}
+					}
 				>
-					{itemType.title}
+					{learningPathItem.title}
 				</button>
 			</td>
 
 			<td className="px-6 py-4 text-right">
-				{(() => {
+				{/* {learningPathItem.component} */}
+				<Component />
+				{/* <Component
+					openModal={openModal}
+					setOpenModal={setOpenModal}
+					id={learningPathItem.id}
+				/> */}
+				{/* {(() => {
 					switch (itemType.type) {
 						case "asset":
 							return (
@@ -112,7 +94,7 @@ export default function LearningPathSectionRow({ learningPathItem }) {
 						default:
 							return null;
 					}
-				})()}
+				})()} */}
 			</td>
 		</tr>
 	);

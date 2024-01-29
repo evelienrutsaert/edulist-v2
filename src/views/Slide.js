@@ -3,9 +3,9 @@ import ModalPopUp from "../components/ModalPopUp";
 import { useQuery } from "@apollo/client";
 import { SLIDE } from "../graphql/queries";
 
-export default function Slide({ slideId, openModal, setOpenModal }) {
+export default function Slide({ id, openModal, setOpenModal }) {
 	const { loading, error, data } = useQuery(SLIDE, {
-		variables: { id: slideId },
+		variables: { id: id },
 	});
 
 	return (
