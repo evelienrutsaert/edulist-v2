@@ -31,8 +31,8 @@ export default function LearningPathSectionRow({ learningPathItem }) {
 			</td>
 
 			<td className="px-6 py-4 text-right">
-				{/* {learningPathItem.component} */}
-				<Component />
+				{learningPathItem.component}
+				{/* <Component /> */}
 				{/* <Component
 					openModal={openModal}
 					setOpenModal={setOpenModal}
