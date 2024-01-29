@@ -7,7 +7,7 @@ export default function Asset({ id, openModal, setOpenModal }) {
 	const { loading, error, data } = useQuery(GET_ASSET, {
 		variables: { id: id },
 	});
-	if (data) console.log(data);
+
 	return (
 		<>
 			{loading && <p>Loading data ....</p>}
