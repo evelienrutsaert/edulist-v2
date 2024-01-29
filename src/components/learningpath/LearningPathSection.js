@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
 import LearningPathSectionRow from "./LearningPathSectionRow";
-import { useYouTube } from "../../hooks/useYouTube";
 
 export default function LearningPathSection({ learningPathSection }) {
 	return (

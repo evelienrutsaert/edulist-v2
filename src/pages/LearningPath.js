@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CHECKLIST } from "../graphql/queries";
 import Loader from "../components/Loader";
-import LearningPathItemRow from "../components/learningpath/LearningPathSectionRow";
 import BackButton from "../components/BackButton";
 import Kuddos from "../components/Kuddos";
 import LearningPathSection from "../components/learningpath/LearningPathSection";

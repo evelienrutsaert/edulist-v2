@@ -1,11 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { allItemTypes } from "../../data/item-types";
-import Slide from "../../views/Slide";
-import Asset from "../../views/Asset";
-import LinkType from "../../views/LinkType";
-import MdDoc from "../../views/MdDoc";
-import Excercise from "../../views/Exercise";
-import YouTube from "../../views/YouTube";
+import React, { useState } from "react";
 
 export default function LearningPathSectionRow({ learningPathItem }) {
 	// console.log(learningPathItem);
