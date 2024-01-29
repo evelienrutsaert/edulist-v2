@@ -49,8 +49,6 @@ export default function LearningPath() {
 									id: item.slide.id,
 									viewType: "modal",
 									title: item.description,
-									path: "",
-									videoId: "",
 									bgColor: "bg-blue-500",
 									inputProps: {
 										id: item.slide.id,
@@ -70,10 +68,12 @@ export default function LearningPath() {
 									viewType: "modal",
 									title: youtubeTitle,
 									bgColor: "bg-red-500",
-									path: "",
-									videoId: item.youTube.videoId,
 									component: <YouTube />,
-									inputProps: {},
+									inputProps: {
+										youtubeId: item.youTube.id,
+										videoId: item.youTube.videoId,
+										youTubeTitle: youtubeTitle,
+									},
 									component: YouTube,
 								};
 								break;
@@ -84,8 +84,6 @@ export default function LearningPath() {
 									viewType: "sidebar",
 									title: item.description,
 									bgColor: "bg-cyan-500",
-									path: "",
-									videoId: "",
 									inputProps: {
 										id: item.exercise.id,
 									},
@@ -99,8 +97,6 @@ export default function LearningPath() {
 									viewType: "link",
 									title: item.description,
 									bgColor: "bg-[#f8ae51]",
-									path: item.url,
-									videoId: "",
 									inputProps: {
 										path: item.url,
 									},
@@ -114,8 +110,6 @@ export default function LearningPath() {
 									viewType: "link",
 									title: item.description,
 									bgColor: "bg-indigo-500",
-									path: item.url,
-									videoId: "",
 									inputProps: {
 										path: item.url,
 									},
@@ -129,8 +123,6 @@ export default function LearningPath() {
 									viewType: "sidebar",
 									title: item.description,
 									bgColor: "bg-pink-500",
-									path: "",
-									videoId: "",
 									inputProps: {
 										id: item.mdDoc.id,
 									},
@@ -144,8 +136,6 @@ export default function LearningPath() {
 									viewType: "modal",
 									title: item.description,
 									bgColor: "bg-rose-300",
-									path: "",
-									videoId: "",
 									inputProps: {
 										id: item.asset.id,
 									},
