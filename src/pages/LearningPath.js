@@ -32,7 +32,12 @@ export default function LearningPath() {
 	}, [timeForKuddos]);
 
 	const [checkList, setChecklist] = useState([]);
-	const { fetchYoutubeTitle } = useYouTube();
+	const {
+		data: youtubeData,
+		getYoutubeTitle,
+		isLoading,
+		isError,
+	} = useYouTube();
 	const setAllItems = async () => {
 		await data?.checklist.checklistSections.map(async (secion) => {
 			let allItems = [];
@@ -56,9 +61,7 @@ export default function LearningPath() {
 							break;
 						case "youtube":
 							// Fetch youtube Information based on Youtube Video ID
-							const youtubeTitle = await fetchYoutubeTitle(
-								item.youTube.videoId
-							);
+							const youtubeTitle = await getYoutubeTitle(item.youTube.videoId);
 							currentItem = {
 								type: "youTube",
 								id: item.youTube.id,
